@@ -1,0 +1,25 @@
+{
+  "name": "hussainweb/date-converter",
+  "description": "",
+  "type": "library",
+  "keywords": [
+    "date",
+    "hijri"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hussain Abbas",
+      "email": "hussainweb@gmail.com",
+      "homepage": "http://hussainweb.me"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hussainweb\\DateConverter\\": "src/"
+    }
+  }
+}

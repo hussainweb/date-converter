@@ -14,7 +14,7 @@ class InvalidDateException extends \RuntimeException
      */
     protected $errors;
 
-    public function __construct(array $errors, $code = 0, \Exception $previous = NULL)
+    public function __construct(array $errors, $code = 0, \Exception $previous = null)
     {
         $this->errors = $errors;
 
@@ -37,5 +37,4 @@ class InvalidDateException extends \RuntimeException
     {
         return $this->errors;
     }
-
 }

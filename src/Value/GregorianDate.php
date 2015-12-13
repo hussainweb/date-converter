@@ -36,6 +36,7 @@ class GregorianDate extends Date
      */
     public function setJulianDay($julian_day)
     {
-        return new static(\DateTimeImmutable::createFromFormat('n/j/Y', jdtogregorian($julian_day)));
+        list($m, $d, $y) = explode('/', jdtogregorian($julian_day));
+        return new static($d, $m, $y);
     }
 }

@@ -4,7 +4,8 @@
   "type": "library",
   "keywords": [
     "date",
-    "hijri"
+    "hijri",
+    "calendar"
   ],
   "license": "GPL-2.0",
   "authors": [

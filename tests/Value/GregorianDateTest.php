@@ -21,6 +21,7 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider gregorianDateProvider
+     * @covers ::__construct
      * @covers ::getMonthDay
      * @covers ::getMonth
      * @covers ::getYear

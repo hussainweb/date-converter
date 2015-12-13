@@ -8,12 +8,16 @@ namespace Hussainweb\DateConverter\Value;
 
 class NativeDate extends Date
 {
+
+    /**
+     * @var int
+     */
     protected $timestamp;
 
     public function __construct($timestamp)
     {
-        $month_day = date('n', $timestamp);
-        $month = date('j', $timestamp);
+        $month_day = date('j', $timestamp);
+        $month = date('n', $timestamp);
         $year = date('Y', $timestamp);
         $this->timestamp = $timestamp;
 

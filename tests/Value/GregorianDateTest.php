@@ -27,11 +27,20 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
      */
     public function testGregorianDates($d, $m, $y)
     {
-        $date = \DateTimeImmutable::createFromFormat('j-n-Y', $d . '-' . $m . '-' . $y);
         $gregorian_date = new GregorianDate($d, $m, $y);
         $this->assertEquals($d, $gregorian_date->getMonthDay());
         $this->assertEquals($m, $gregorian_date->getMonth());
         $this->assertEquals($y, $gregorian_date->getYear());
+    }
+
+    /**
+     * @dataProvider invalidGregorianDateProvider
+     * @covers ::__construct
+     * @expectedException \Hussainweb\DateConverter\InvalidDateException
+     */
+    public function testInvalidGregorianDates($d, $m, $y)
+    {
+        $gregorian_date = new GregorianDate($d, $m, $y);
     }
 
     public function gregorianDateProvider()
@@ -44,4 +53,11 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    public function invalidGregorianDateProvider()
+    {
+        return
+        [
+            [29, 2, 2015],
+        ];
+    }
 }

@@ -6,11 +6,20 @@
 
 namespace Hussainweb\DateConverter\Value;
 
+use Hussainweb\DateConverter\InvalidDateException;
+
 class GregorianDate extends Date
 {
 
     public function __construct($month_day, $month, $year)
     {
+        // Create a DateTime object directly.
+        $this->datetime = \DateTimeImmutable::createFromFormat('n/j/Y', sprintf('%d/%d/%d', $month, $month_day, $year));
+        $errors = $this->datetime->getLastErrors();
+        if (!empty($errors['warning_count']) || !empty($errors['error_count'])) {
+            throw new InvalidDateException($errors);
+        }
+
         parent::__construct($month_day, $month, $year);
     }
 

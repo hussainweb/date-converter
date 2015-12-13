@@ -39,5 +39,4 @@ interface DateInterface
      * @return int The year of this date.
      */
     public function getYear();
-
 }

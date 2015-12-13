@@ -20,5 +20,4 @@ class DateConverter
     {
         $this->strategy = $strategy;
     }
-
 }

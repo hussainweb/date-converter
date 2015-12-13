@@ -35,5 +35,4 @@ class NativeDate extends Date
     {
         return new static(jdtounix($julian_day));
     }
-
 }

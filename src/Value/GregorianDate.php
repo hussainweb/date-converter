@@ -1,13 +1,10 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: hw
- * Date: 13-Dec-15
- * Time: 17:31
+ * @file
  */
 
 namespace Hussainweb\DateConverter\Value;
-
 
 class GregorianDate extends Date
 {
@@ -32,5 +29,4 @@ class GregorianDate extends Date
     {
         return new static(\DateTimeImmutable::createFromFormat('n/j/Y', jdtogregorian($julian_day)));
     }
-
 }

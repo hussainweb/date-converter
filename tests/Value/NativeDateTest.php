@@ -40,6 +40,18 @@ class NativeDateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($y, $new_date->getYear());
     }
 
+    /**
+     * @dataProvider nativeDateProvider
+     * @covers ::fromJulianDay
+     */
+    public function testNativeDatesFromJulianDay($ts, $d, $m, $y, $jd)
+    {
+        $new_date = NativeDate::fromJulianDay($jd);
+        $this->assertEquals($d, $new_date->getMonthDay());
+        $this->assertEquals($m, $new_date->getMonth());
+        $this->assertEquals($y, $new_date->getYear());
+    }
+
     public function nativeDateProvider()
     {
         return

@@ -11,6 +11,11 @@ use Hussainweb\DateConverter\InvalidDateException;
 class GregorianDate extends Date
 {
 
+    /**
+     * @var \DateTimeInterface
+     */
+    protected $datetime;
+
     public function __construct($month_day, $month, $year)
     {
         // Create a DateTime object directly.
@@ -26,6 +31,14 @@ class GregorianDate extends Date
     /**
      * {@inheritdoc}
      */
+    public function getDateTime()
+    {
+        return clone $this->datetime;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getJulianDay()
     {
         return gregoriantojd($this->month, $this->monthDay, $this->year);
@@ -34,7 +47,7 @@ class GregorianDate extends Date
     /**
      * {@inheritdoc}
      */
-    public function setJulianDay($julian_day)
+    public static function fromJulianDay($julian_day)
     {
         list($m, $d, $y) = explode('/', jdtogregorian($julian_day));
         return new static($d, $m, $y);

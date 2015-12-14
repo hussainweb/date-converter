@@ -43,6 +43,18 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider gregorianDateProvider
+     * @covers ::fromJulianDay
+     */
+    public function testGregorianDatesFromJulianDay($d, $m, $y, $jd)
+    {
+        $new_date = GregorianDate::fromJulianDay($jd);
+        $this->assertEquals($d, $new_date->getMonthDay());
+        $this->assertEquals($m, $new_date->getMonth());
+        $this->assertEquals($y, $new_date->getYear());
+    }
+
+    /**
      * @dataProvider invalidGregorianDateProvider
      * @covers ::__construct
      * @expectedException \Hussainweb\DateConverter\InvalidDateException

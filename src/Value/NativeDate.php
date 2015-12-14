@@ -25,6 +25,14 @@ class NativeDate extends Date
     }
 
     /**
+     * @return int Timestamp for this NativeDate.
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getJulianDay()
@@ -35,7 +43,7 @@ class NativeDate extends Date
     /**
      * {@inheritdoc}
      */
-    public function setJulianDay($julian_day)
+    public static function fromJulianDay($julian_day)
     {
         return new static(jdtounix($julian_day));
     }

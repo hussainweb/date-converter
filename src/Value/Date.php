@@ -10,11 +10,6 @@ abstract class Date implements DateInterface
 {
 
     /**
-     * @var \DateTimeInterface
-     */
-    protected $datetime;
-
-    /**
      * @var int
      */
     protected $monthDay;
@@ -39,14 +34,6 @@ abstract class Date implements DateInterface
     /**
      * {@inheritdoc}
      */
-    public function getDateTime()
-    {
-        return clone $this->datetime;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getMonthDay()
     {
         return $this->monthDay;
@@ -66,5 +53,13 @@ abstract class Date implements DateInterface
     public function getYear()
     {
         return $this->year;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setJulianDay($julian_day)
+    {
+        return static::fromJulianDay($julian_day);
     }
 }

@@ -10,11 +10,6 @@ interface DateInterface
 {
 
     /**
-     * @return \DateTimeInterface
-     */
-    public function getDateTime();
-
-    /**
      * @return int The Julian Day count for this date.
      */
     public function getJulianDay();
@@ -24,6 +19,12 @@ interface DateInterface
      * @return DateInterface
      */
     public function setJulianDay($julian_day);
+
+    /**
+     * @param $julian_day The Julian Day count for the date.
+     * @return DateInterface
+     */
+    public static function fromJulianDay($julian_day);
 
     /**
      * @return int The day of the month of this date.

@@ -18,7 +18,7 @@ class DateTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @dataProvider gregorianDateProvider
+     * @dataProvider dateProvider
      * @covers ::__construct
      * @covers ::getMonthDay
      * @covers ::getMonth
@@ -32,7 +32,7 @@ class DateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($y, $date->getYear());
     }
 
-    public function gregorianDateProvider()
+    public function dateProvider()
     {
         return
           [

@@ -52,6 +52,16 @@ class NativeDateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($y, $new_date->getYear());
     }
 
+    /**
+     * @dataProvider nativeDateProvider
+     * @covers ::getTimestamp
+     */
+    public function testNativeDatesTimestamps($ts, $d, $m, $y, $jd)
+    {
+        $native_date = new NativeDate($ts);
+        $this->assertEquals($ts, $native_date->getTimestamp());
+    }
+
     public function nativeDateProvider()
     {
         return

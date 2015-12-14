@@ -55,6 +55,19 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider gregorianDateProvider
+     * @covers ::getDateTime
+     */
+    public function testGregorianDatesDateTime($d, $m, $y)
+    {
+        $gregorian_date = new GregorianDate($d, $m, $y);
+        $dt = $gregorian_date->getDateTime();
+        $this->assertEquals($d, $dt->format('j'));
+        $this->assertEquals($m, $dt->format('n'));
+        $this->assertEquals($y, $dt->format('Y'));
+    }
+
+    /**
      * @dataProvider invalidGregorianDateProvider
      * @covers ::__construct
      * @expectedException \Hussainweb\DateConverter\InvalidDateException

@@ -54,12 +54,4 @@ abstract class Date implements DateInterface
     {
         return $this->year;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setJulianDay($julian_day)
-    {
-        return static::fromJulianDay($julian_day);
-    }
 }

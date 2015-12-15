@@ -7,6 +7,7 @@
 namespace Hussainweb\DateConverter\Value;
 
 use Hussainweb\DateConverter\InvalidDateException;
+use Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm;
 
 class GregorianDate extends Date
 {
@@ -18,12 +19,14 @@ class GregorianDate extends Date
 
     public function __construct($month_day, $month, $year)
     {
-        // Create a DateTime object directly.
-        $this->datetime = \DateTimeImmutable::createFromFormat('n/j/Y', sprintf('%d/%d/%d', $month, $month_day, $year));
-        $errors = $this->datetime->getLastErrors();
-        if (!empty($errors['warning_count']) || !empty($errors['error_count'])) {
+        $errors = [];
+        $algorithm = new GregorianAlgorithm();
+        if (!$algorithm->isValidDate($month_day, $month, $year, $errors)) {
             throw new InvalidDateException($errors);
         }
+
+        // Create a DateTime object directly.
+        $this->datetime = \DateTimeImmutable::createFromFormat('n/j/Y', sprintf('%d/%d/%d', $month, $month_day, $year));
 
         parent::__construct($month_day, $month, $year);
     }
@@ -34,22 +37,5 @@ class GregorianDate extends Date
     public function getDateTime()
     {
         return clone $this->datetime;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getJulianDay()
-    {
-        return gregoriantojd($this->month, $this->monthDay, $this->year);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function fromJulianDay($julian_day)
-    {
-        list($m, $d, $y) = explode('/', jdtogregorian($julian_day));
-        return new static($d, $m, $y);
     }
 }

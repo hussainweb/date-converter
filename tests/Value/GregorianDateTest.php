@@ -25,33 +25,13 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
      * @covers ::getMonthDay
      * @covers ::getMonth
      * @covers ::getYear
-     * @covers ::getJulianDay
-     * @covers ::setJulianDay
      */
-    public function testGregorianDates($d, $m, $y, $jd)
+    public function testGregorianDates($d, $m, $y)
     {
         $gregorian_date = new GregorianDate($d, $m, $y);
         $this->assertEquals($d, $gregorian_date->getMonthDay());
         $this->assertEquals($m, $gregorian_date->getMonth());
         $this->assertEquals($y, $gregorian_date->getYear());
-        $this->assertEquals($jd, $gregorian_date->getJulianDay());
-
-        $new_date = $gregorian_date->setJulianDay($jd);
-        $this->assertEquals($d, $new_date->getMonthDay());
-        $this->assertEquals($m, $new_date->getMonth());
-        $this->assertEquals($y, $new_date->getYear());
-    }
-
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::fromJulianDay
-     */
-    public function testGregorianDatesFromJulianDay($d, $m, $y, $jd)
-    {
-        $new_date = GregorianDate::fromJulianDay($jd);
-        $this->assertEquals($d, $new_date->getMonthDay());
-        $this->assertEquals($m, $new_date->getMonth());
-        $this->assertEquals($y, $new_date->getYear());
     }
 
     /**
@@ -81,9 +61,9 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
     {
         return
         [
-            [24, 6, 2015, 2457198],
-            [28, 2, 2015, 2457082],
-            [29, 2, 2016, 2457448],
+            [24, 6, 2015],
+            [28, 2, 2015],
+            [29, 2, 2016],
         ];
     }
 

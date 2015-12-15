@@ -31,20 +31,4 @@ class NativeDate extends Date
     {
         return $this->timestamp;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getJulianDay()
-    {
-        return unixtojd($this->timestamp);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function fromJulianDay($julian_day)
-    {
-        return new static(jdtounix($julian_day));
-    }
 }

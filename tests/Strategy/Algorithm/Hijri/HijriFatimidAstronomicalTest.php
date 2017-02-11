@@ -1,17 +1,12 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Tests\Strategy\Algorithm\Hijri;
 
 use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriFatimidAstronomical;
 use Hussainweb\DateConverter\Value\HijriDate;
 
 /**
- * Class HijriFatimidAstronomicalTest
- * @package Hussainweb\DateConverter\Tests\Strategy\Algorithm\Hijri
+ * Test for class HijriFatimidAstronomical
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriFatimidAstronomical
  */

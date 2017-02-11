@@ -1,16 +1,11 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Value\Date;
 
 /**
- * Class DateTest
- * @package Hussainweb\DateConverter\Tests\Value
+ * Test for class Date
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\Date
  */

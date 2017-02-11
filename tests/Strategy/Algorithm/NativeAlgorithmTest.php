@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Tests\Strategy\Algorithm;
 
 use Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm;
@@ -11,8 +7,7 @@ use Hussainweb\DateConverter\Value\GregorianDate;
 use Hussainweb\DateConverter\Value\NativeDate;
 
 /**
- * Class NativeAlgorithmTest
- * @package Hussainweb\DateConverter\Tests\Strategy\Algorithm
+ * Test for class NativeAlgorithm
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm
  */

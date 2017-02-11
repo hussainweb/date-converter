@@ -1,19 +1,11 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Strategy\Algorithm;
 
 use Hussainweb\DateConverter\Strategy\AlgorithmInterface;
 use Hussainweb\DateConverter\Value\DateInterface;
 use Hussainweb\DateConverter\Value\GregorianDate;
 
-/**
- * Class GregorianAlgorithm
- * @package Hussainweb\DateConverter\Strategy\Algorithm
- */
 class GregorianAlgorithm implements AlgorithmInterface
 {
 

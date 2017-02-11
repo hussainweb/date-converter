@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Value;
 
 use Hussainweb\DateConverter\InvalidDateException;

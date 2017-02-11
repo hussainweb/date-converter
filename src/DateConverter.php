@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter;
 
 use Hussainweb\DateConverter\Strategy\StrategyInterface;

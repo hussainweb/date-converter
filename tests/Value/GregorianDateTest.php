@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hw
- * Date: 13-Dec-15
- * Time: 21:22
- */
 
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Value\GregorianDate;
 
 /**
- * Class GregorianDateTest
- * @package Hussainweb\DateConverter\Tests\Value
+ * Test for class GregorianDate
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\GregorianDate
  */

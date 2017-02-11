@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Strategy\Algorithm\Hijri;
 
 class HijriFatimidAstronomical extends HijriAlgorithmBase

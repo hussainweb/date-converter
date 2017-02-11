@@ -1,17 +1,12 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase;
 use Hussainweb\DateConverter\Value\HijriDate;
 
 /**
- * Class HijriDateTest
- * @package Hussainweb\DateConverter\Tests\Value
+ * Test for class HijriDate
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\HijriDate
  */

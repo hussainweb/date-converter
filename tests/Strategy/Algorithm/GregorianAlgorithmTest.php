@@ -1,17 +1,12 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Tests\Strategy\Algorithm;
 
 use Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
 
 /**
- * Class GregorianAlgorithmTest
- * @package Hussainweb\DateConverter\Tests\Strategy\Algorithm
+ * Test for class GregorianAlgorithm
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm
  */

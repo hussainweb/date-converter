@@ -1,14 +1,9 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Tests;
 
 /**
- * Class DateConverterTest
- * @package Hussainweb\DateConverter\Tests
+ * Test for class DateConverter
  *
  * @coversDefaultClass \Hussainweb\DateConverter\DateConverter
  */

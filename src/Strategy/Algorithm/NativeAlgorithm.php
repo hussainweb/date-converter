@@ -1,19 +1,11 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DateConverter\Strategy\Algorithm;
 
 use Hussainweb\DateConverter\Strategy\AlgorithmInterface;
 use Hussainweb\DateConverter\Value\DateInterface;
 use Hussainweb\DateConverter\Value\NativeDate;
 
-/**
- * Class NativeAlgorithm
- * @package Hussainweb\DateConverter\Strategy\Algorithm
- */
 class NativeAlgorithm implements AlgorithmInterface
 {
 

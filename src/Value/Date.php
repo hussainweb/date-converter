@@ -50,4 +50,12 @@ abstract class Date implements DateInterface
     {
         return $this->year;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormatter()
+    {
+        return null;
+    }
 }

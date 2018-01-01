@@ -27,6 +27,15 @@ class DateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($y, $date->getYear());
     }
 
+    /**
+     * @covers ::getFormatter
+     */
+    public function testFormatterIsNull()
+    {
+        $date = $this->getMockForAbstractClass(Date::class, [1, 1, 1]);
+        $this->assertNull($date->getFormatter());
+    }
+
     public function dateProvider()
     {
         return

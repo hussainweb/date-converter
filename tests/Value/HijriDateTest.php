@@ -2,6 +2,7 @@
 
 namespace Hussainweb\DateConverter\Tests\Value;
 
+use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase;
 use Hussainweb\DateConverter\Value\HijriDate;
 
@@ -47,6 +48,19 @@ class HijriDateTest extends \PHPUnit_Framework_TestCase
     public function testInvalidHijriDates($d, $m, $y)
     {
         $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
+    }
+
+    /**
+     * @dataProvider hijriDateProvider
+     * @covers ::getFormatter
+     */
+    public function testFormatter($d, $m, $y)
+    {
+        $gregorian_date = new HijriDate($d, $m, $y, $this->algorithm);
+        $formatter = $gregorian_date->getFormatter();
+        $this->assertTrue($formatter instanceof HijriDateFormatter);
+        $this->assertSame($y, (int) $formatter->format('Y'));
+        $this->assertSame($m, (int) $formatter->format('m'));
     }
 
     public function hijriDateProvider()

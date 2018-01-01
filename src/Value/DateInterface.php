@@ -2,6 +2,8 @@
 
 namespace Hussainweb\DateConverter\Value;
 
+use Hussainweb\DateConverter\Formatter\DateFormatterInterface;
+
 interface DateInterface
 {
 
@@ -19,4 +21,9 @@ interface DateInterface
      * @return int The year of this date.
      */
     public function getYear();
+
+    /**
+     * @return DateFormatterInterface Date Formatter
+     */
+    public function getFormatter();
 }

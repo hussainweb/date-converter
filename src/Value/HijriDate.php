@@ -2,6 +2,7 @@
 
 namespace Hussainweb\DateConverter\Value;
 
+use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase;
 
@@ -21,5 +22,13 @@ class HijriDate extends Date
         }
 
         parent::__construct($month_day, $month, $year);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormatter()
+    {
+        return new HijriDateFormatter($this->algorithm, $this);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Hussainweb\DateConverter\Tests\Value;
 
+use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
 use Hussainweb\DateConverter\Value\GregorianDate;
 
 /**
@@ -48,6 +49,19 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
     public function testInvalidGregorianDates($d, $m, $y)
     {
         $gregorian_date = new GregorianDate($d, $m, $y);
+    }
+
+    /**
+     * @dataProvider gregorianDateProvider
+     * @covers ::getFormatter
+     */
+    public function testFormatter($d, $m, $y)
+    {
+        $gregorian_date = new GregorianDate($d, $m, $y);
+        $formatter = $gregorian_date->getFormatter();
+        $this->assertTrue($formatter instanceof GregorianDateFormatter);
+        $this->assertSame($y, (int) $formatter->format('Y'));
+        $this->assertSame($m, (int) $formatter->format('m'));
     }
 
     public function gregorianDateProvider()

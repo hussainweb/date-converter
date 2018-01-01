@@ -2,6 +2,7 @@
 
 namespace Hussainweb\DateConverter\Value;
 
+use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
 use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm;
 
@@ -33,5 +34,13 @@ class GregorianDate extends Date
     public function getDateTime()
     {
         return clone $this->datetime;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormatter()
+    {
+        return new GregorianDateFormatter(new GregorianAlgorithm(), $this);
     }
 }

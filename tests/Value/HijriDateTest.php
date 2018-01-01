@@ -3,7 +3,7 @@
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
-use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase;
+use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
 use Hussainweb\DateConverter\Value\HijriDate;
 
 /**
@@ -15,7 +15,7 @@ class HijriDateTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase
+     * @var \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase
      */
     protected $algorithm;
 
@@ -42,7 +42,7 @@ class HijriDateTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider invalidHijriDateProvider
      * @covers ::__construct
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase::isValidDate
+     * @covers \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase::isValidDate
      * @expectedException \Hussainweb\DateConverter\InvalidDateException
      */
     public function testInvalidHijriDates($d, $m, $y)

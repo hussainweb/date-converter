@@ -1,20 +1,20 @@
 <?php
 
-namespace Hussainweb\DateConverter\Tests\Strategy\Algorithm\Hijri;
+namespace Hussainweb\DateConverter\Tests\Algorithm\Hijri;
 
-use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriFatimidAstronomical;
+use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
 use Hussainweb\DateConverter\Value\HijriDate;
 
 /**
  * Test for class HijriFatimidAstronomical
  *
- * @coversDefaultClass \Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriFatimidAstronomical
+ * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical
  */
 class HijriFatimidAstronomicalTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriFatimidAstronomical
+     * @var \Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical
      */
     protected $algorithm;
 

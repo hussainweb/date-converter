@@ -8,7 +8,7 @@
 
 namespace Hussainweb\DateConverter\Tests\Formatter;
 
-use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriFatimidAstronomical;
+use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
 use Hussainweb\DateConverter\Value\HijriDate;
 
 /**

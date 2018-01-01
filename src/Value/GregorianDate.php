@@ -4,7 +4,7 @@ namespace Hussainweb\DateConverter\Value;
 
 use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
 use Hussainweb\DateConverter\InvalidDateException;
-use Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm;
+use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 
 class GregorianDate extends Date
 {

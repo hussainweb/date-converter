@@ -1,21 +1,21 @@
 <?php
 
-namespace Hussainweb\DateConverter\Tests\Strategy\Algorithm;
+namespace Hussainweb\DateConverter\Tests\Algorithm;
 
-use Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm;
+use Hussainweb\DateConverter\Algorithm\NativeAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
 use Hussainweb\DateConverter\Value\NativeDate;
 
 /**
  * Test for class NativeAlgorithm
  *
- * @coversDefaultClass \Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm
+ * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\NativeAlgorithm
  */
 class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm
+     * @var \Hussainweb\DateConverter\Algorithm\NativeAlgorithm
      */
     protected $algorithm;
 
@@ -59,7 +59,7 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider nativeDateProvider
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\ValidDateTimeCheck::isValidDate
+     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
      */
     public function testIsValidDate($ts, $d, $m, $y)
     {
@@ -68,7 +68,7 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider invalidNativeDateProvider
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\ValidDateTimeCheck::isValidDate
+     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
      */
     public function testIsValidDateInvalid($d, $m, $y)
     {
@@ -76,7 +76,7 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm::getMonthDays
+     * @covers \Hussainweb\DateConverter\Algorithm\NativeAlgorithm::getMonthDays
      * @expectedException \InvalidArgumentException
      */
     public function testExceptionOnGetMonthDays()

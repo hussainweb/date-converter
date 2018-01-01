@@ -1,8 +1,8 @@
 <?php
 
-namespace Hussainweb\DateConverter\Strategy\Algorithm\Hijri;
+namespace Hussainweb\DateConverter\Algorithm\Hijri;
 
-use Hussainweb\DateConverter\Strategy\AlgorithmInterface;
+use Hussainweb\DateConverter\Algorithm\AlgorithmInterface;
 use Hussainweb\DateConverter\Value\DateInterface;
 use Hussainweb\DateConverter\Value\HijriDate;
 

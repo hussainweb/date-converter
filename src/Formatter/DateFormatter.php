@@ -2,7 +2,7 @@
 
 namespace Hussainweb\DateConverter\Formatter;
 
-use Hussainweb\DateConverter\Strategy\AlgorithmInterface;
+use Hussainweb\DateConverter\Algorithm\AlgorithmInterface;
 use Hussainweb\DateConverter\Value\DateInterface;
 
 abstract class DateFormatter implements DateFormatterInterface

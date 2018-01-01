@@ -1,6 +1,6 @@
 <?php
 
-namespace Hussainweb\DateConverter\Strategy\Algorithm;
+namespace Hussainweb\DateConverter\Algorithm;
 
 trait ValidDateTimeCheck
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hussainweb\DateConverter\Strategy;
+namespace Hussainweb\DateConverter\Algorithm;
 
 use Hussainweb\DateConverter\Value\DateInterface;
 

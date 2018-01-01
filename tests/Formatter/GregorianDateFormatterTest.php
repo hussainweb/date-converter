@@ -3,7 +3,7 @@
 namespace Hussainweb\DateConverter\Tests\Formatter;
 
 use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
-use Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm;
+use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
 
 /**

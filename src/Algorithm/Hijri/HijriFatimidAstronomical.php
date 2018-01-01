@@ -1,6 +1,6 @@
 <?php
 
-namespace Hussainweb\DateConverter\Strategy\Algorithm\Hijri;
+namespace Hussainweb\DateConverter\Algorithm\Hijri;
 
 class HijriFatimidAstronomical extends HijriAlgorithmBase
 {

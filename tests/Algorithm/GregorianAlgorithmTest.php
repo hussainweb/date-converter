@@ -1,20 +1,20 @@
 <?php
 
-namespace Hussainweb\DateConverter\Tests\Strategy\Algorithm;
+namespace Hussainweb\DateConverter\Tests\Algorithm;
 
-use Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm;
+use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
 
 /**
  * Test for class GregorianAlgorithm
  *
- * @coversDefaultClass \Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm
+ * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm
  */
 class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm
+     * @var \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm
      */
     protected $algorithm;
 
@@ -57,7 +57,7 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider gregorianDateProvider
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\ValidDateTimeCheck::isValidDate
+     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
      */
     public function testIsValidDate($d, $m, $y)
     {
@@ -66,7 +66,7 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider invalidGregorianDateProvider
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\ValidDateTimeCheck::isValidDate
+     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
      */
     public function testIsValidDateInvalid($d, $m, $y)
     {
@@ -75,7 +75,7 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider gregorianMonthDaysProvider
-     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm::getMonthDays
+     * @covers \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm::getMonthDays
      */
     public function testGetMonthDays($m, $y, $days)
     {

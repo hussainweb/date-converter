@@ -1,8 +1,8 @@
 <?php
 
-namespace Hussainweb\DateConverter\Strategy\Algorithm;
+namespace Hussainweb\DateConverter\Algorithm;
 
-use Hussainweb\DateConverter\Strategy\AlgorithmInterface;
+use Hussainweb\DateConverter\Algorithm\AlgorithmInterface;
 use Hussainweb\DateConverter\Value\DateInterface;
 use Hussainweb\DateConverter\Value\NativeDate;
 

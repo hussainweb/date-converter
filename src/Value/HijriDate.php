@@ -4,13 +4,13 @@ namespace Hussainweb\DateConverter\Value;
 
 use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\InvalidDateException;
-use Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase;
+use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
 
 class HijriDate extends Date
 {
 
     /**
-     * @var \Hussainweb\DateConverter\Strategy\Algorithm\Hijri\HijriAlgorithmBase
+     * @var \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase
      */
     protected $algorithm;
 

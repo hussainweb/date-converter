@@ -94,7 +94,7 @@ class HijriFatimidAstronomicalTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(29, $this->algorithm->getMonthDays(1439, 2));
         $this->assertSame(29, $this->algorithm->getMonthDays(1439, 4));
         $this->assertSame(30, $this->algorithm->getMonthDays(1439, 5));
-        $this->assertSame(29, $this->algorithm->getMonthDays(1439, 9));
+        $this->assertSame(30, $this->algorithm->getMonthDays(1439, 9));
     }
 
     /**

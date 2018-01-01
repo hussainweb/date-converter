@@ -27,4 +27,13 @@ class GregorianAlgorithm implements AlgorithmInterface
     {
         return gregoriantojd($date->getMonth(), $date->getMonthDay(), $date->getYear());
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMonthDays($year, $month)
+    {
+        $timestamp = mktime(12, 0, 0, $month, 1, $year);
+        return (int) date('t', $timestamp);
+    }
 }

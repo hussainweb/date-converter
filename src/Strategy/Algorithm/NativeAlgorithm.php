@@ -29,4 +29,12 @@ class NativeAlgorithm implements AlgorithmInterface
         }
         return unixtojd($date->getTimeStamp());
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMonthDays($year, $month)
+    {
+        throw new \InvalidArgumentException("Native dates do not have a concept of month and year");
+    }
 }

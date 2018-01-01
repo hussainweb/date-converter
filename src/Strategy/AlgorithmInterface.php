@@ -27,4 +27,11 @@ interface AlgorithmInterface
      * @return bool If the date is valid as per the algorithm, true.
      */
     public function isValidDate($month_day, $month, $year, &$errors);
+
+    /**
+     * @param int $year The year
+     * @param int $month The month
+     * @return int The number of days in the specified month/year.
+     */
+    public function getMonthDays($year, $month);
 }

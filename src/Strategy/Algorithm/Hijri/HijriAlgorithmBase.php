@@ -101,4 +101,18 @@ abstract class HijriAlgorithmBase implements AlgorithmInterface
           floor(($this->getYearOffsetShift() + (11 * $year)) / 30) +
           $this->getEpoch());
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getMonthDays($year, $month)
+    {
+        if ($month == 12) {
+            // Check if the year is Kabisa.
+            return $this->isKabisa($year) ? 30 : 29;
+        } else {
+            // All odd numbered months have 30 days and rest have 29.
+            return ($month % 2 == 0) ? 29 : 30;
+        }
+    }
 }

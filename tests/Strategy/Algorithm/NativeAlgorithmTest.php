@@ -75,6 +75,15 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->algorithm->isValidDate($d, $m, $y));
     }
 
+    /**
+     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\NativeAlgorithm::getMonthDays
+     * @expectedException \InvalidArgumentException
+     */
+    public function testExceptionOnGetMonthDays()
+    {
+        $days = $this->algorithm->getMonthDays(2017, 1);
+    }
+
     public function nativeDateProvider()
     {
         return

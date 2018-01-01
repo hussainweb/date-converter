@@ -86,6 +86,29 @@ class HijriFatimidAstronomicalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($is_kabisa, $this->algorithm->isKabisa($year));
     }
 
+    /**
+     * @covers ::getMonthDays
+     */
+    public function testGetMonthDays()
+    {
+        $this->assertSame(29, $this->algorithm->getMonthDays(1439, 2));
+        $this->assertSame(29, $this->algorithm->getMonthDays(1439, 4));
+        $this->assertSame(30, $this->algorithm->getMonthDays(1439, 5));
+        $this->assertSame(29, $this->algorithm->getMonthDays(1439, 9));
+    }
+
+    /**
+     * @dataProvider kabisaYears
+     * @covers ::getMonthDays
+     */
+    public function testGetMonthDaysInKabisa($year, $is_kabisa)
+    {
+        $this->assertSame(
+            $is_kabisa ? 30 : 29,
+            $this->algorithm->getMonthDays($year, 12)
+        );
+    }
+
     public function hijriDateProvider()
     {
         return

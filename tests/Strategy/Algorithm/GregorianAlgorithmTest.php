@@ -73,14 +73,38 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->algorithm->isValidDate($d, $m, $y));
     }
 
+    /**
+     * @dataProvider gregorianMonthDaysProvider
+     * @covers \Hussainweb\DateConverter\Strategy\Algorithm\GregorianAlgorithm::getMonthDays
+     */
+    public function testGetMonthDays($m, $y, $days)
+    {
+        $this->assertSame(
+            $days,
+            $this->algorithm->getMonthDays($y, $m)
+        );
+    }
+
     public function gregorianDateProvider()
     {
         return
-          [
-            [24, 6, 2015, 2457198],
-            [28, 2, 2015, 2457082],
-            [29, 2, 2016, 2457448],
-          ];
+            [
+                [24, 6, 2015, 2457198],
+                [28, 2, 2015, 2457082],
+                [29, 2, 2016, 2457448],
+            ];
+    }
+
+    public function gregorianMonthDaysProvider()
+    {
+        return
+            [
+                [6, 2015, 30],
+                [2, 2015, 28],
+                [2, 2016, 29],
+                [2, 2017, 28],
+                [12, 2017, 31],
+            ];
     }
 
     public function invalidGregorianDateProvider()

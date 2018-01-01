@@ -3,6 +3,7 @@
 namespace Hussainweb\DateConverter\Algorithm\Hijri;
 
 use Hussainweb\DateConverter\Algorithm\AlgorithmInterface;
+use Hussainweb\DateConverter\Value\Date;
 use Hussainweb\DateConverter\Value\DateInterface;
 use Hussainweb\DateConverter\Value\HijriDate;
 
@@ -114,5 +115,13 @@ abstract class HijriAlgorithmBase implements AlgorithmInterface
             // All odd numbered months have 30 days and rest have 29.
             return ($month % 2 == 0) ? 29 : 30;
         }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function constructDateValue($month_day, $month, $year)
+    {
+        return new HijriDate($month_day, $month, $year, $this);
     }
 }

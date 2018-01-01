@@ -3,6 +3,7 @@
 namespace Hussainweb\DateConverter\Algorithm;
 
 use Hussainweb\DateConverter\Algorithm\AlgorithmInterface;
+use Hussainweb\DateConverter\Value\Date;
 use Hussainweb\DateConverter\Value\DateInterface;
 use Hussainweb\DateConverter\Value\GregorianDate;
 
@@ -35,5 +36,13 @@ class GregorianAlgorithm implements AlgorithmInterface
     {
         $timestamp = mktime(12, 0, 0, $month, 1, $year);
         return (int) date('t', $timestamp);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function constructDateValue($month_day, $month, $year)
+    {
+        return new GregorianDate($month_day, $month, $year);
     }
 }

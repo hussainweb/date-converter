@@ -31,10 +31,10 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
     public function testFromJulianDay($ts, $d, $m, $y, $jd)
     {
         $date = $this->algorithm->fromJulianDay($jd);
-        $this->assertEquals($d, $date->getMonthDay());
-        $this->assertEquals($m, $date->getMonth());
-        $this->assertEquals($y, $date->getYear());
-        $this->assertEquals($ts, $date->getTimestamp());
+        $this->assertSame($d, $date->getMonthDay());
+        $this->assertSame($m, $date->getMonth());
+        $this->assertSame($y, $date->getYear());
+        $this->assertSame($ts, $date->getTimestamp());
     }
 
     /**
@@ -44,7 +44,7 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
     public function testToJulianDay($ts, $d, $m, $y, $jd)
     {
         $actual_jd = $this->algorithm->toJulianDay(new NativeDate($ts));
-        $this->assertEquals($jd, $actual_jd);
+        $this->assertSame($jd, $actual_jd);
     }
 
     /**
@@ -82,6 +82,19 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
     public function testExceptionOnGetMonthDays()
     {
         $days = $this->algorithm->getMonthDays(2017, 1);
+    }
+
+    /**
+     * @dataProvider nativeDateProvider
+     * @covers ::constructDateValue
+     */
+    public function testConstructDateValues($ts, $d, $m, $y)
+    {
+        $date = $this->algorithm->constructDateValue($d, $m, $y);
+        $this->assertSame($ts, $date->getTimestamp());
+        $this->assertSame($d, $date->getMonthDay());
+        $this->assertSame($m, $date->getMonth());
+        $this->assertSame($y, $date->getYear());
     }
 
     public function nativeDateProvider()

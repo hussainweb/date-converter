@@ -2,10 +2,21 @@
 
 namespace Hussainweb\DateConverter\Algorithm;
 
+use Hussainweb\DateConverter\Value\Date;
 use Hussainweb\DateConverter\Value\DateInterface;
 
 interface AlgorithmInterface
 {
+
+    /**
+     * Get a date value object for this algorithm.
+     *
+     * @param int $month_day Day of the month
+     * @param int $month Month
+     * @param int $year Year
+     * @return Date The date value object based on the algorithm.
+     */
+    public function constructDateValue($month_day, $month, $year);
 
     /**
      * @param $julian_day The Julian Day count.

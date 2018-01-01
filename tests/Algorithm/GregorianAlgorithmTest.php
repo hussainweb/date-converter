@@ -85,6 +85,18 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @dataProvider gregorianDateProvider
+     * @covers ::constructDateValue
+     */
+    public function testConstructDateValues($d, $m, $y)
+    {
+        $date = $this->algorithm->constructDateValue($d, $m, $y);
+        $this->assertSame($d, $date->getMonthDay());
+        $this->assertSame($m, $date->getMonth());
+        $this->assertSame($y, $date->getYear());
+    }
+
     public function gregorianDateProvider()
     {
         return

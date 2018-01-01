@@ -12,9 +12,9 @@ class NativeDate extends Date
 
     public function __construct($timestamp)
     {
-        $month_day = date('j', $timestamp);
-        $month = date('n', $timestamp);
-        $year = date('Y', $timestamp);
+        $month_day = (int) date('j', $timestamp);
+        $month = (int) date('n', $timestamp);
+        $year = (int) date('Y', $timestamp);
         $this->timestamp = $timestamp;
 
         parent::__construct($month_day, $month, $year);

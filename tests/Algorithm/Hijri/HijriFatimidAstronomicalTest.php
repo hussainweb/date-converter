@@ -3,6 +3,7 @@
 namespace Hussainweb\DateConverter\Tests\Algorithm\Hijri;
 
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
+use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\HijriDate;
 use PHPUnit\Framework\TestCase;
 
@@ -53,10 +54,10 @@ class HijriFatimidAstronomicalTest extends TestCase
      * @dataProvider invalidHijriDateProvider
      * @covers ::toJulianDay
      * @covers ::getYearOffsetShift
-     * @expectedException \Hussainweb\DateConverter\InvalidDateException
      */
     public function testInvalidToJulianDay($d, $m, $y)
     {
+        $this->expectException(InvalidDateException::class);
         $actual_jd = $this->algorithm->toJulianDay(new HijriDate($d, $m, $y, $this->algorithm));
     }
 

@@ -3,6 +3,7 @@
 namespace Hussainweb\DateConverter\Tests\Algorithm;
 
 use Hussainweb\DateConverter\Algorithm\NativeAlgorithm;
+use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\GregorianDate;
 use Hussainweb\DateConverter\Value\NativeDate;
 use PHPUnit\Framework\TestCase;
@@ -51,10 +52,10 @@ class NativeAlgorithmTest extends TestCase
     /**
      * @dataProvider nativeDateProvider
      * @covers ::toJulianDay
-     * @expectedException \InvalidArgumentException
      */
     public function testOtherToJulianDay($ts, $d, $m, $y, $jd)
     {
+        $this->expectException(InvalidDateException::class);
         $actual_jd = $this->algorithm->toJulianDay(new GregorianDate($d, $m, $y));
     }
 
@@ -78,10 +79,10 @@ class NativeAlgorithmTest extends TestCase
 
     /**
      * @covers \Hussainweb\DateConverter\Algorithm\NativeAlgorithm::getMonthDays
-     * @expectedException \InvalidArgumentException
      */
     public function testExceptionOnGetMonthDays()
     {
+        $this->expectException(InvalidDateException::class);
         $days = $this->algorithm->getMonthDays(2017, 1);
     }
 

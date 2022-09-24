@@ -3,14 +3,16 @@
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
+use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class GregorianDate
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\GregorianDate
  */
-class GregorianDateTest extends \PHPUnit_Framework_TestCase
+class GregorianDateTest extends TestCase
 {
 
     /**
@@ -44,10 +46,10 @@ class GregorianDateTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider invalidGregorianDateProvider
      * @covers ::__construct
-     * @expectedException \Hussainweb\DateConverter\InvalidDateException
      */
     public function testInvalidGregorianDates($d, $m, $y)
     {
+        $this->expectException(InvalidDateException::class);
         $gregorian_date = new GregorianDate($d, $m, $y);
     }
 

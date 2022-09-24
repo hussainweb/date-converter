@@ -2,12 +2,14 @@
 
 namespace Hussainweb\DateConverter\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Test for class DateConverter
  *
  * @coversDefaultClass \Hussainweb\DateConverter\DateConverter
  */
-class DateConverterTest extends \PHPUnit_Framework_TestCase
+class DateConverterTest extends TestCase
 {
 
     public function testStub()

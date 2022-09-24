@@ -3,13 +3,14 @@
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Value\NativeDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class NativeDate
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\NativeDate
  */
-class NativeDateTest extends \PHPUnit_Framework_TestCase
+class NativeDateTest extends TestCase
 {
 
     /**
@@ -40,10 +41,10 @@ class NativeDateTest extends \PHPUnit_Framework_TestCase
     public function nativeDateProvider()
     {
         return
-          [
+        [
             [1435104000, 24, 6, 2015],
             [1425081600, 28, 2, 2015],
             [1456704000, 29, 2, 2016],
-          ];
+        ];
     }
 }

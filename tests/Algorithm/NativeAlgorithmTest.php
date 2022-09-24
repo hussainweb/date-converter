@@ -5,13 +5,15 @@ namespace Hussainweb\DateConverter\Tests\Algorithm;
 use Hussainweb\DateConverter\Algorithm\NativeAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
 use Hussainweb\DateConverter\Value\NativeDate;
+use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class NativeAlgorithm
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\NativeAlgorithm
  */
-class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
+class NativeAlgorithmTest extends TestCase
 {
 
     /**
@@ -19,7 +21,7 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
      */
     protected $algorithm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->algorithm = new NativeAlgorithm();
     }
@@ -50,10 +52,10 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider nativeDateProvider
      * @covers ::toJulianDay
-     * @expectedException \InvalidArgumentException
      */
     public function testOtherToJulianDay($ts, $d, $m, $y, $jd)
     {
+        $this->expectException(InvalidArgumentException::class);
         $actual_jd = $this->algorithm->toJulianDay(new GregorianDate($d, $m, $y));
     }
 
@@ -77,10 +79,10 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers \Hussainweb\DateConverter\Algorithm\NativeAlgorithm::getMonthDays
-     * @expectedException \InvalidArgumentException
      */
     public function testExceptionOnGetMonthDays()
     {
+        $this->expectException(InvalidArgumentException::class);
         $days = $this->algorithm->getMonthDays(2017, 1);
     }
 
@@ -100,18 +102,18 @@ class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
     public function nativeDateProvider()
     {
         return
-          [
+        [
             [1435104000, 24, 6, 2015, 2457198],
             [1425081600, 28, 2, 2015, 2457082],
             [1456704000, 29, 2, 2016, 2457448],
-          ];
+        ];
     }
 
     public function invalidNativeDateProvider()
     {
         return
-          [
+        [
             [29, 2, 2015],
-          ];
+        ];
     }
 }

@@ -5,13 +5,14 @@ namespace Hussainweb\DateConverter\Tests\Formatter;
 use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
 use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class GregorianDateFormatter
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Formatter\GregorianDateFormatter
  */
-class GregorianDateFormatterTest extends \PHPUnit_Framework_TestCase
+class GregorianDateFormatterTest extends TestCase
 {
 
     /**

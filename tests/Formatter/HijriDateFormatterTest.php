@@ -10,13 +10,14 @@ namespace Hussainweb\DateConverter\Tests\Formatter;
 
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class HijriDateFormatter
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Formatter\HijriDateFormatter
  */
-class HijriDateFormatterTest extends \PHPUnit_Framework_TestCase
+class HijriDateFormatterTest extends TestCase
 {
 
     /**

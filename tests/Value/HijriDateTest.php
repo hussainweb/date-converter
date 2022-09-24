@@ -4,14 +4,16 @@ namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
+use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class HijriDate
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\HijriDate
  */
-class HijriDateTest extends \PHPUnit_Framework_TestCase
+class HijriDateTest extends TestCase
 {
 
     /**
@@ -19,7 +21,7 @@ class HijriDateTest extends \PHPUnit_Framework_TestCase
      */
     protected $algorithm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->algorithm = $this->getMockForAbstractClass(HijriAlgorithmBase::class);
     }
@@ -43,11 +45,11 @@ class HijriDateTest extends \PHPUnit_Framework_TestCase
      * @dataProvider invalidHijriDateProvider
      * @covers ::__construct
      * @covers \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase::isValidDate
-     * @expectedException \Hussainweb\DateConverter\InvalidDateException
      */
     public function testInvalidHijriDates($d, $m, $y)
     {
-        $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
+      $this->expectException(InvalidDateException::class);
+      $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
     }
 
     /**

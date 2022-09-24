@@ -3,14 +3,16 @@
 namespace Hussainweb\DateConverter\Tests\Algorithm;
 
 use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
+use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class GregorianAlgorithm
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm
  */
-class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
+class GregorianAlgorithmTest extends TestCase
 {
 
     /**
@@ -18,7 +20,7 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
      */
     protected $algorithm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->algorithm = new GregorianAlgorithm();
     }
@@ -48,10 +50,10 @@ class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider invalidGregorianDateProvider
      * @covers ::toJulianDay
-     * @expectedException \Hussainweb\DateConverter\InvalidDateException
      */
     public function testInvalidToJulianDay($d, $m, $y)
     {
+        $this->expectException(InvalidDateException::class);
         $actual_jd = $this->algorithm->toJulianDay(new GregorianDate($d, $m, $y));
     }
 

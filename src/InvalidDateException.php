@@ -4,7 +4,6 @@ namespace Hussainweb\DateConverter;
 
 class InvalidDateException extends \RuntimeException
 {
-
     /**
      * @var array
      */

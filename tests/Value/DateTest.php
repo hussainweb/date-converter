@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
  */
 class DateTest extends TestCase
 {
-
     /**
      * @dataProvider dateProvider
      * @covers ::__construct

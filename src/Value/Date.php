@@ -4,7 +4,6 @@ namespace Hussainweb\DateConverter\Value;
 
 abstract class Date implements DateInterface
 {
-
     /**
      * @var int
      */

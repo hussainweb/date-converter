@@ -9,7 +9,6 @@ use Hussainweb\DateConverter\Value\GregorianDate;
 
 class GregorianAlgorithm implements AlgorithmInterface
 {
-
     use ValidDateTimeCheck;
 
     /**

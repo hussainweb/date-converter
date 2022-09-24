@@ -6,7 +6,6 @@ use Hussainweb\DateConverter\Formatter\DateFormatterInterface;
 
 interface DateInterface
 {
-
     /**
      * @return int The day of the month of this date.
      */

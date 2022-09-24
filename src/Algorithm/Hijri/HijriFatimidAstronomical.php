@@ -4,7 +4,6 @@ namespace Hussainweb\DateConverter\Algorithm\Hijri;
 
 class HijriFatimidAstronomical extends HijriAlgorithmBase
 {
-
     /**
      * {@inheritdoc}
      */

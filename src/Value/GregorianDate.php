@@ -8,7 +8,6 @@ use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 
 class GregorianDate extends Date
 {
-
     /**
      * @var \DateTimeInterface
      */

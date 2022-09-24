@@ -9,7 +9,6 @@ use Hussainweb\DateConverter\Value\HijriDate;
 
 abstract class HijriAlgorithmBase implements AlgorithmInterface
 {
-
     const EPOCH_CIVIL = 1948085;
 
     const EPOCH_ASTRONOMICAL = 1948084;

@@ -8,7 +8,6 @@ use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
 
 class HijriDate extends Date
 {
-
     /**
      * @var \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase
      */

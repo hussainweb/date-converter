@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: hw
@@ -19,7 +20,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HijriDateFormatterTest extends TestCase
 {
-
     /**
      * @dataProvider hijriFormatProvider
      * @covers ::__construct

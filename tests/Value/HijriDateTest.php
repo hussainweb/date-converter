@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HijriDateTest extends TestCase
 {
-
     /**
      * @var \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase
      */
@@ -48,8 +47,8 @@ class HijriDateTest extends TestCase
      */
     public function testInvalidHijriDates($d, $m, $y)
     {
-      $this->expectException(InvalidDateException::class);
-      $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
+        $this->expectException(InvalidDateException::class);
+        $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
     }
 
     /**

@@ -7,7 +7,6 @@ use Hussainweb\DateConverter\Value\DateInterface;
 
 abstract class DateFormatter implements DateFormatterInterface
 {
-
     /**
      * @var AlgorithmInterface
      */

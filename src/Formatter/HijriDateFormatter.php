@@ -4,7 +4,6 @@ namespace Hussainweb\DateConverter\Formatter;
 
 class HijriDateFormatter extends DateFormatter
 {
-
     /**
      * @inheritDoc
      */

@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
  */
 class DateConverterTest extends TestCase
 {
-
     public function testStub()
     {
         // Nothing to run now.

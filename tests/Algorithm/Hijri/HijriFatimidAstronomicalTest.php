@@ -14,7 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HijriFatimidAstronomicalTest extends TestCase
 {
-
     /**
      * @var \Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical
      */

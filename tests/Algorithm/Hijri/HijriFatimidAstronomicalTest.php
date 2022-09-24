@@ -4,13 +4,14 @@ namespace Hussainweb\DateConverter\Tests\Algorithm\Hijri;
 
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class HijriFatimidAstronomical
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical
  */
-class HijriFatimidAstronomicalTest extends \PHPUnit_Framework_TestCase
+class HijriFatimidAstronomicalTest extends TestCase
 {
 
     /**

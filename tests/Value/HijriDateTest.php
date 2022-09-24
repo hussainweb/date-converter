@@ -5,13 +5,14 @@ namespace Hussainweb\DateConverter\Tests\Value;
 use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class HijriDate
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\HijriDate
  */
-class HijriDateTest extends \PHPUnit_Framework_TestCase
+class HijriDateTest extends TestCase
 {
 
     /**

@@ -5,13 +5,14 @@ namespace Hussainweb\DateConverter\Tests\Algorithm;
 use Hussainweb\DateConverter\Algorithm\NativeAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
 use Hussainweb\DateConverter\Value\NativeDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class NativeAlgorithm
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\NativeAlgorithm
  */
-class NativeAlgorithmTest extends \PHPUnit_Framework_TestCase
+class NativeAlgorithmTest extends TestCase
 {
 
     /**

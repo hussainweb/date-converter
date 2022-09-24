@@ -3,13 +3,14 @@
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Value\Date;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class Date
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Value\Date
  */
-class DateTest extends \PHPUnit_Framework_TestCase
+class DateTest extends TestCase
 {
 
     /**

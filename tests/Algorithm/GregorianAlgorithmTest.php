@@ -4,13 +4,14 @@ namespace Hussainweb\DateConverter\Tests\Algorithm;
 
 use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for class GregorianAlgorithm
  *
  * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm
  */
-class GregorianAlgorithmTest extends \PHPUnit_Framework_TestCase
+class GregorianAlgorithmTest extends TestCase
 {
 
     /**

@@ -14,7 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class GregorianAlgorithmTest extends TestCase
 {
-
     /**
      * @var \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm
      */

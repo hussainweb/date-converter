@@ -4,7 +4,6 @@ namespace Hussainweb\DateConverter\Value;
 
 class NativeDate extends Date
 {
-
     /**
      * @var int
      */

@@ -14,7 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class GregorianDateFormatterTest extends TestCase
 {
-
     /**
      * @dataProvider gregorianFormatProvider
      * @covers ::__construct

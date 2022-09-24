@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
  */
 class NativeAlgorithmTest extends TestCase
 {
-
     /**
      * @var \Hussainweb\DateConverter\Algorithm\NativeAlgorithm
      */

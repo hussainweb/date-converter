@@ -9,7 +9,6 @@ use Hussainweb\DateConverter\Value\NativeDate;
 
 class NativeAlgorithm implements AlgorithmInterface
 {
-
     use ValidDateTimeCheck;
 
     /**

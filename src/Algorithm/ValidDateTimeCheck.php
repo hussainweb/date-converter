@@ -4,7 +4,6 @@ namespace Hussainweb\DateConverter\Algorithm;
 
 trait ValidDateTimeCheck
 {
-
     /**
      * {@inheritdoc}
      */

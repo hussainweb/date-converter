@@ -6,7 +6,6 @@ use Hussainweb\DateConverter\Value\DateInterface;
 
 interface DateFormatterInterface
 {
-
     /**
      * Formats a date per the given format string.
      *

@@ -7,7 +7,6 @@ use Hussainweb\DateConverter\Value\DateInterface;
 
 interface AlgorithmInterface
 {
-
     /**
      * Get a date value object for this algorithm.
      *

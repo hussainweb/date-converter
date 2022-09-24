@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
  */
 class NativeDateTest extends TestCase
 {
-
     /**
      * @dataProvider nativeDateProvider
      * @covers ::__construct

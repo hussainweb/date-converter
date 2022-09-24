@@ -20,7 +20,7 @@ class NativeAlgorithmTest extends TestCase
      */
     protected $algorithm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->algorithm = new NativeAlgorithm();
     }
@@ -101,18 +101,18 @@ class NativeAlgorithmTest extends TestCase
     public function nativeDateProvider()
     {
         return
-          [
+        [
             [1435104000, 24, 6, 2015, 2457198],
             [1425081600, 28, 2, 2015, 2457082],
             [1456704000, 29, 2, 2016, 2457448],
-          ];
+        ];
     }
 
     public function invalidNativeDateProvider()
     {
         return
-          [
+        [
             [29, 2, 2015],
-          ];
+        ];
     }
 }

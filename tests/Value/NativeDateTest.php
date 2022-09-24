@@ -41,10 +41,10 @@ class NativeDateTest extends TestCase
     public function nativeDateProvider()
     {
         return
-          [
+        [
             [1435104000, 24, 6, 2015],
             [1425081600, 28, 2, 2015],
             [1456704000, 29, 2, 2016],
-          ];
+        ];
     }
 }

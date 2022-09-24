@@ -20,7 +20,7 @@ class HijriDateTest extends TestCase
      */
     protected $algorithm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->algorithm = $this->getMockForAbstractClass(HijriAlgorithmBase::class);
     }

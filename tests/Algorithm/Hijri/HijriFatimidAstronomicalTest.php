@@ -19,7 +19,7 @@ class HijriFatimidAstronomicalTest extends TestCase
      */
     protected $algorithm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->algorithm = new HijriFatimidAstronomical();
     }

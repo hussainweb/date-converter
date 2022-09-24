@@ -1,6 +1,6 @@
 # Date Converter
 
-[![Latest Version](https://img.shields.io/github/release/hussainweb/date-converter.svg?style=flat-square)](https://github.com/hussainweb/date-converter/releases)
+[![Latest Version](https://img.shields.io/github/v/release/hussainweb/date-converter?style=flat-square)](https://github.com/hussainweb/date-converter/releases)
 [![Software License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/github/workflow/status/hussainweb/date-converter/PHP%20tests%20and%20style%20checks?style=flat-square)](https://github.com/hussainweb/date-converter/actions/workflows/test.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/hussainweb/date-converter.svg?style=flat-square)](https://packagist.org/packages/hussainweb/date-converter)

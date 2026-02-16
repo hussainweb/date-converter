@@ -7,6 +7,10 @@
 
 Date Converter is a PHP library to convert dates across various calendars, including Gregorian, Hijri (various algorithms), and Unix timestamp (Native) representations.
 
+## Requirements
+
+The library requires PHP 7.4 or higher. It is tested on PHP 7.4, 8.0, 8.1, 8.2, 8.3, 8.4, and 8.5.
+
 ## Install
 
 Via Composer

@@ -5,22 +5,14 @@ namespace Hussainweb\DateConverter\Tests\Value;
 use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
 use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class GregorianDate
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Value\GregorianDate
- */
+#[CoversClass(GregorianDate::class)]
 class GregorianDateTest extends TestCase
 {
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::__construct
-     * @covers ::getMonthDay
-     * @covers ::getMonth
-     * @covers ::getYear
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testGregorianDates($d, $m, $y)
     {
         $gregorian_date = new GregorianDate($d, $m, $y);
@@ -29,10 +21,7 @@ class GregorianDateTest extends TestCase
         $this->assertEquals($y, $gregorian_date->getYear());
     }
 
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::getDateTime
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testGregorianDatesDateTime($d, $m, $y)
     {
         $gregorian_date = new GregorianDate($d, $m, $y);
@@ -42,20 +31,14 @@ class GregorianDateTest extends TestCase
         $this->assertEquals($y, $dt->format('Y'));
     }
 
-    /**
-     * @dataProvider invalidGregorianDateProvider
-     * @covers ::__construct
-     */
+    #[DataProvider('invalidGregorianDateProvider')]
     public function testInvalidGregorianDates($d, $m, $y)
     {
         $this->expectException(InvalidDateException::class);
         $gregorian_date = new GregorianDate($d, $m, $y);
     }
 
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::getFormatter
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testFormatter($d, $m, $y)
     {
         $gregorian_date = new GregorianDate($d, $m, $y);
@@ -65,7 +48,7 @@ class GregorianDateTest extends TestCase
         $this->assertSame($m, (int) $formatter->format('m'));
     }
 
-    public function gregorianDateProvider()
+    public static function gregorianDateProvider()
     {
         return
         [
@@ -75,7 +58,7 @@ class GregorianDateTest extends TestCase
         ];
     }
 
-    public function invalidGregorianDateProvider()
+    public static function invalidGregorianDateProvider()
     {
         return
         [

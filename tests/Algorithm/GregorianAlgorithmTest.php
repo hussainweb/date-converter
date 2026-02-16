@@ -3,15 +3,16 @@
 namespace Hussainweb\DateConverter\Tests\Algorithm;
 
 use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
+use Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck;
 use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversTrait;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class GregorianAlgorithm
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm
- */
+#[CoversClass(GregorianAlgorithm::class)]
+#[CoversTrait(ValidDateTimeCheck::class)]
 class GregorianAlgorithmTest extends TestCase
 {
     /**
@@ -24,10 +25,7 @@ class GregorianAlgorithmTest extends TestCase
         $this->algorithm = new GregorianAlgorithm();
     }
 
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::fromJulianDay
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testFromJulianDay($d, $m, $y, $jd)
     {
         $date = $this->algorithm->fromJulianDay($jd);
@@ -36,48 +34,33 @@ class GregorianAlgorithmTest extends TestCase
         $this->assertEquals($y, $date->getYear());
     }
 
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::toJulianDay
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testToJulianDay($d, $m, $y, $jd)
     {
         $actual_jd = $this->algorithm->toJulianDay(new GregorianDate($d, $m, $y));
         $this->assertEquals($jd, $actual_jd);
     }
 
-    /**
-     * @dataProvider invalidGregorianDateProvider
-     * @covers ::toJulianDay
-     */
+    #[DataProvider('invalidGregorianDateProvider')]
     public function testInvalidToJulianDay($d, $m, $y)
     {
         $this->expectException(InvalidDateException::class);
         $actual_jd = $this->algorithm->toJulianDay(new GregorianDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testIsValidDate($d, $m, $y)
     {
         $this->assertTrue($this->algorithm->isValidDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider invalidGregorianDateProvider
-     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
-     */
+    #[DataProvider('invalidGregorianDateProvider')]
     public function testIsValidDateInvalid($d, $m, $y)
     {
         $this->assertFalse($this->algorithm->isValidDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider gregorianMonthDaysProvider
-     * @covers \Hussainweb\DateConverter\Algorithm\GregorianAlgorithm::getMonthDays
-     */
+    #[DataProvider('gregorianMonthDaysProvider')]
     public function testGetMonthDays($m, $y, $days)
     {
         $this->assertSame(
@@ -86,10 +69,7 @@ class GregorianAlgorithmTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider gregorianDateProvider
-     * @covers ::constructDateValue
-     */
+    #[DataProvider('gregorianDateProvider')]
     public function testConstructDateValues($d, $m, $y)
     {
         $date = $this->algorithm->constructDateValue($d, $m, $y);
@@ -98,7 +78,7 @@ class GregorianAlgorithmTest extends TestCase
         $this->assertSame($y, $date->getYear());
     }
 
-    public function gregorianDateProvider()
+    public static function gregorianDateProvider()
     {
         return
             [
@@ -108,7 +88,7 @@ class GregorianAlgorithmTest extends TestCase
             ];
     }
 
-    public function gregorianMonthDaysProvider()
+    public static function gregorianMonthDaysProvider()
     {
         return
             [
@@ -120,7 +100,7 @@ class GregorianAlgorithmTest extends TestCase
             ];
     }
 
-    public function invalidGregorianDateProvider()
+    public static function invalidGregorianDateProvider()
     {
         return
           [

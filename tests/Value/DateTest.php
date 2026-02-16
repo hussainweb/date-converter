@@ -3,40 +3,31 @@
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Value\Date;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class Date
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Value\Date
- */
+#[CoversClass(Date::class)]
 class DateTest extends TestCase
 {
-    /**
-     * @dataProvider dateProvider
-     * @covers ::__construct
-     * @covers ::getMonthDay
-     * @covers ::getMonth
-     * @covers ::getYear
-     */
+    #[DataProvider('dateProvider')]
     public function testDates($d, $m, $y)
     {
-        $date = $this->getMockForAbstractClass(Date::class, [$d, $m, $y]);
+        $date = new class ($d, $m, $y) extends Date {
+        };
         $this->assertEquals($d, $date->getMonthDay());
         $this->assertEquals($m, $date->getMonth());
         $this->assertEquals($y, $date->getYear());
     }
 
-    /**
-     * @covers ::getFormatter
-     */
     public function testFormatterIsNull()
     {
-        $date = $this->getMockForAbstractClass(Date::class, [1, 1, 1]);
+        $date = new class (1, 1, 1) extends Date {
+        };
         $this->assertNull($date->getFormatter());
     }
 
-    public function dateProvider()
+    public static function dateProvider()
     {
         return
           [

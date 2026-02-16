@@ -3,15 +3,15 @@
 namespace Hussainweb\DateConverter\Tests\Algorithm\Hijri;
 
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
+use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
 use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class HijriFatimidAstronomical
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical
- */
+#[CoversClass(HijriFatimidAstronomical::class)]
+#[CoversClass(HijriAlgorithmBase::class)]
 class HijriFatimidAstronomicalTest extends TestCase
 {
     /**
@@ -24,12 +24,7 @@ class HijriFatimidAstronomicalTest extends TestCase
         $this->algorithm = new HijriFatimidAstronomical();
     }
 
-    /**
-     * @dataProvider hijriDateProvider
-     * @covers ::fromJulianDay
-     * @covers ::getEpoch
-     * @covers ::getShift
-     */
+    #[DataProvider('hijriDateProvider')]
     public function testFromJulianDay($d, $m, $y, $jd)
     {
         $date = $this->algorithm->fromJulianDay($jd);
@@ -38,58 +33,38 @@ class HijriFatimidAstronomicalTest extends TestCase
         $this->assertEquals($y, $date->getYear());
     }
 
-    /**
-     * @dataProvider hijriDateProvider
-     * @covers ::toJulianDay
-     * @covers ::getYearOffsetShift
-     */
+    #[DataProvider('hijriDateProvider')]
     public function testToJulianDay($d, $m, $y, $jd)
     {
         $actual_jd = $this->algorithm->toJulianDay(new HijriDate($d, $m, $y, $this->algorithm));
         $this->assertEquals($jd, $actual_jd);
     }
 
-    /**
-     * @dataProvider invalidHijriDateProvider
-     * @covers ::toJulianDay
-     * @covers ::getYearOffsetShift
-     */
+    #[DataProvider('invalidHijriDateProvider')]
     public function testInvalidToJulianDay($d, $m, $y)
     {
         $this->expectException(InvalidDateException::class);
         $actual_jd = $this->algorithm->toJulianDay(new HijriDate($d, $m, $y, $this->algorithm));
     }
 
-    /**
-     * @dataProvider hijriDateProvider
-     * @covers ::isValidDate
-     */
+    #[DataProvider('hijriDateProvider')]
     public function testIsValidDate($d, $m, $y)
     {
         $this->assertTrue($this->algorithm->isValidDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider invalidHijriDateProvider
-     * @covers ::isValidDate
-     */
+    #[DataProvider('invalidHijriDateProvider')]
     public function testIsValidDateInvalid($d, $m, $y)
     {
         $this->assertFalse($this->algorithm->isValidDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider kabisaYears
-     * @covers ::isKabisa
-     */
+    #[DataProvider('kabisaYears')]
     public function testKabisaYears($year, $is_kabisa)
     {
         $this->assertEquals($is_kabisa, $this->algorithm->isKabisa($year));
     }
 
-    /**
-     * @covers ::getMonthDays
-     */
     public function testGetMonthDays()
     {
         $this->assertSame(29, $this->algorithm->getMonthDays(1439, 2));
@@ -98,10 +73,7 @@ class HijriFatimidAstronomicalTest extends TestCase
         $this->assertSame(30, $this->algorithm->getMonthDays(1439, 9));
     }
 
-    /**
-     * @dataProvider kabisaYears
-     * @covers ::getMonthDays
-     */
+    #[DataProvider('kabisaYears')]
     public function testGetMonthDaysInKabisa($year, $is_kabisa)
     {
         $this->assertSame(
@@ -110,10 +82,7 @@ class HijriFatimidAstronomicalTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider hijriDateProvider
-     * @covers ::constructDateValue
-     */
+    #[DataProvider('hijriDateProvider')]
     public function testConstructDateValues($d, $m, $y)
     {
         $date = $this->algorithm->constructDateValue($d, $m, $y);
@@ -122,7 +91,7 @@ class HijriFatimidAstronomicalTest extends TestCase
         $this->assertSame($y, $date->getYear());
     }
 
-    public function hijriDateProvider()
+    public static function hijriDateProvider()
     {
         return
           [
@@ -132,7 +101,7 @@ class HijriFatimidAstronomicalTest extends TestCase
           ];
     }
 
-    public function invalidHijriDateProvider()
+    public static function invalidHijriDateProvider()
     {
         return
           [
@@ -140,7 +109,7 @@ class HijriFatimidAstronomicalTest extends TestCase
           ];
     }
 
-    public function kabisaYears()
+    public static function kabisaYears()
     {
         $kabisa = [2, 5, 8, 10, 13, 16, 19, 21, 24, 27, 29];
         // Test a random sabt.

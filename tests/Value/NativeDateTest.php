@@ -3,22 +3,14 @@
 namespace Hussainweb\DateConverter\Tests\Value;
 
 use Hussainweb\DateConverter\Value\NativeDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class NativeDate
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Value\NativeDate
- */
+#[CoversClass(NativeDate::class)]
 class NativeDateTest extends TestCase
 {
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers ::__construct
-     * @covers ::getMonthDay
-     * @covers ::getMonth
-     * @covers ::getYear
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testNativeDates($ts, $d, $m, $y)
     {
         $native_date = new NativeDate($ts);
@@ -27,17 +19,14 @@ class NativeDateTest extends TestCase
         $this->assertEquals($y, $native_date->getYear());
     }
 
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers ::getTimestamp
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testNativeDatesTimestamps($ts, $d, $m, $y)
     {
         $native_date = new NativeDate($ts);
         $this->assertEquals($ts, $native_date->getTimestamp());
     }
 
-    public function nativeDateProvider()
+    public static function nativeDateProvider()
     {
         return
         [

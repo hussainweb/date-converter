@@ -3,16 +3,17 @@
 namespace Hussainweb\DateConverter\Tests\Algorithm;
 
 use Hussainweb\DateConverter\Algorithm\NativeAlgorithm;
+use Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck;
 use Hussainweb\DateConverter\Value\GregorianDate;
 use Hussainweb\DateConverter\Value\NativeDate;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversTrait;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class NativeAlgorithm
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Algorithm\NativeAlgorithm
- */
+#[CoversClass(NativeAlgorithm::class)]
+#[CoversTrait(ValidDateTimeCheck::class)]
 class NativeAlgorithmTest extends TestCase
 {
     /**
@@ -25,10 +26,7 @@ class NativeAlgorithmTest extends TestCase
         $this->algorithm = new NativeAlgorithm();
     }
 
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers ::fromJulianDay
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testFromJulianDay($ts, $d, $m, $y, $jd)
     {
         $date = $this->algorithm->fromJulianDay($jd);
@@ -38,57 +36,39 @@ class NativeAlgorithmTest extends TestCase
         $this->assertSame($ts, $date->getTimestamp());
     }
 
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers ::toJulianDay
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testToJulianDay($ts, $d, $m, $y, $jd)
     {
         $actual_jd = $this->algorithm->toJulianDay(new NativeDate($ts));
         $this->assertSame($jd, $actual_jd);
     }
 
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers ::toJulianDay
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testOtherToJulianDay($ts, $d, $m, $y, $jd)
     {
         $this->expectException(InvalidArgumentException::class);
         $actual_jd = $this->algorithm->toJulianDay(new GregorianDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testIsValidDate($ts, $d, $m, $y)
     {
         $this->assertTrue($this->algorithm->isValidDate($d, $m, $y));
     }
 
-    /**
-     * @dataProvider invalidNativeDateProvider
-     * @covers \Hussainweb\DateConverter\Algorithm\ValidDateTimeCheck::isValidDate
-     */
+    #[DataProvider('invalidNativeDateProvider')]
     public function testIsValidDateInvalid($d, $m, $y)
     {
         $this->assertFalse($this->algorithm->isValidDate($d, $m, $y));
     }
 
-    /**
-     * @covers \Hussainweb\DateConverter\Algorithm\NativeAlgorithm::getMonthDays
-     */
     public function testExceptionOnGetMonthDays()
     {
         $this->expectException(InvalidArgumentException::class);
         $days = $this->algorithm->getMonthDays(2017, 1);
     }
 
-    /**
-     * @dataProvider nativeDateProvider
-     * @covers ::constructDateValue
-     */
+    #[DataProvider('nativeDateProvider')]
     public function testConstructDateValues($ts, $d, $m, $y)
     {
         $date = $this->algorithm->constructDateValue($d, $m, $y);
@@ -98,7 +78,7 @@ class NativeAlgorithmTest extends TestCase
         $this->assertSame($y, $date->getYear());
     }
 
-    public function nativeDateProvider()
+    public static function nativeDateProvider()
     {
         return
         [
@@ -108,7 +88,7 @@ class NativeAlgorithmTest extends TestCase
         ];
     }
 
-    public function invalidNativeDateProvider()
+    public static function invalidNativeDateProvider()
     {
         return
         [

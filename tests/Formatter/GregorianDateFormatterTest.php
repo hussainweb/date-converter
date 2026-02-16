@@ -5,22 +5,14 @@ namespace Hussainweb\DateConverter\Tests\Formatter;
 use Hussainweb\DateConverter\Formatter\GregorianDateFormatter;
 use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class GregorianDateFormatter
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Formatter\GregorianDateFormatter
- */
+#[CoversClass(GregorianDateFormatter::class)]
 class GregorianDateFormatterTest extends TestCase
 {
-    /**
-     * @dataProvider gregorianFormatProvider
-     * @covers ::__construct
-     * @covers ::format
-     * @covers ::getMonthNames
-     * @covers ::getShortMonthNames
-     */
+    #[DataProvider('gregorianFormatProvider')]
     public function testFormatterIsNull($d, $m, $y, $format, $return)
     {
         $algorithm = new GregorianAlgorithm();
@@ -29,9 +21,6 @@ class GregorianDateFormatterTest extends TestCase
         $this->assertSame($return, $formatter->format($format));
     }
 
-    /**
-     * @covers ::getMonthNames
-     */
     public function testGetMonthNames()
     {
         $date = new GregorianDate(1, 1, 2017);
@@ -39,9 +28,6 @@ class GregorianDateFormatterTest extends TestCase
         $this->assertSame(12, count($formatter->getMonthNames()));
     }
 
-    /**
-     * @covers ::getShortMonthNames
-     */
     public function testGetShortMonthNames()
     {
         $date = new GregorianDate(1, 1, 2017);
@@ -49,7 +35,7 @@ class GregorianDateFormatterTest extends TestCase
         $this->assertSame(12, count($formatter->getShortMonthNames()));
     }
 
-    public function gregorianFormatProvider()
+    public static function gregorianFormatProvider()
     {
         return [
             [1, 1, 2017, 'd-M-Y', '01-Jan-2017'],

@@ -5,28 +5,32 @@ namespace Hussainweb\DateConverter\Tests\Formatter;
 use Hussainweb\DateConverter\Formatter\DateFormatter;
 use Hussainweb\DateConverter\Algorithm\GregorianAlgorithm;
 use Hussainweb\DateConverter\Value\GregorianDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class DateFormatter
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Formatter\DateFormatter
- */
+#[CoversClass(DateFormatter::class)]
 class DateFormatterTest extends TestCase
 {
-    /**
-     * @dataProvider gregorianFormatProvider
-     * @covers ::format
-     */
+    #[DataProvider('gregorianFormatProvider')]
     public function testFormatterIsNull($d, $m, $y, $format, $return)
     {
         $algorithm = new GregorianAlgorithm();
         $date = new GregorianDate($d, $m, $y);
-        $formatter = $this->getMockForAbstractClass(DateFormatter::class, [$algorithm, $date]);
+        $formatter = new class ($algorithm, $date) extends DateFormatter {
+            public function getMonthNames()
+            {
+                return [];
+            }
+            public function getShortMonthNames()
+            {
+                return [];
+            }
+        };
         $this->assertSame($return, $formatter->format($format));
     }
 
-    public function gregorianFormatProvider()
+    public static function gregorianFormatProvider()
     {
         return [
             [1, 1, 2017, 'Y', '2017'],

@@ -10,23 +10,16 @@
 namespace Hussainweb\DateConverter\Tests\Formatter;
 
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriFatimidAstronomical;
+use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class HijriDateFormatter
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Formatter\HijriDateFormatter
- */
+#[CoversClass(HijriDateFormatter::class)]
 class HijriDateFormatterTest extends TestCase
 {
-    /**
-     * @dataProvider hijriFormatProvider
-     * @covers ::__construct
-     * @covers ::format
-     * @covers ::getMonthNames
-     * @covers ::getShortMonthNames
-     */
+    #[DataProvider('hijriFormatProvider')]
     public function testFormatterIsNull($d, $m, $y, $format, $return)
     {
         $date = new HijriDate($d, $m, $y, new HijriFatimidAstronomical());
@@ -34,9 +27,6 @@ class HijriDateFormatterTest extends TestCase
         $this->assertSame($return, $formatter->format($format));
     }
 
-    /**
-     * @covers ::getMonthNames
-     */
     public function testGetMonthNames()
     {
         $date = new HijriDate(1, 1, 1438, new HijriFatimidAstronomical());
@@ -44,9 +34,6 @@ class HijriDateFormatterTest extends TestCase
         $this->assertSame(12, count($formatter->getMonthNames()));
     }
 
-    /**
-     * @covers ::getShortMonthNames
-     */
     public function testGetShortMonthNames()
     {
         $date = new HijriDate(1, 1, 1438, new HijriFatimidAstronomical());
@@ -54,7 +41,7 @@ class HijriDateFormatterTest extends TestCase
         $this->assertSame(12, count($formatter->getShortMonthNames()));
     }
 
-    public function hijriFormatProvider()
+    public static function hijriFormatProvider()
     {
         return [
             [1, 1, 1438, 'd-M-Y', '01-Moharram-1438'],

@@ -6,13 +6,12 @@ use Hussainweb\DateConverter\Formatter\HijriDateFormatter;
 use Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase;
 use Hussainweb\DateConverter\InvalidDateException;
 use Hussainweb\DateConverter\Value\HijriDate;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test for class HijriDate
- *
- * @coversDefaultClass \Hussainweb\DateConverter\Value\HijriDate
- */
+#[CoversClass(HijriDate::class)]
+#[CoversClass(HijriAlgorithmBase::class)]
 class HijriDateTest extends TestCase
 {
     /**
@@ -22,16 +21,30 @@ class HijriDateTest extends TestCase
 
     public function setUp(): void
     {
-        $this->algorithm = $this->getMockForAbstractClass(HijriAlgorithmBase::class);
+        $this->algorithm = new class extends HijriAlgorithmBase {
+            protected function getEpoch()
+            {
+                return 0;
+            }
+
+            protected function getShift()
+            {
+                return 0.0;
+            }
+
+            protected function getYearOffsetShift()
+            {
+                return 0;
+            }
+
+            protected function isKabisa($year)
+            {
+                return false;
+            }
+        };
     }
 
-    /**
-     * @dataProvider hijriDateProvider
-     * @covers ::__construct
-     * @covers ::getMonthDay
-     * @covers ::getMonth
-     * @covers ::getYear
-     */
+    #[DataProvider('hijriDateProvider')]
     public function testHijriDates($d, $m, $y)
     {
         $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
@@ -40,21 +53,14 @@ class HijriDateTest extends TestCase
         $this->assertEquals($y, $hijri_date->getYear());
     }
 
-    /**
-     * @dataProvider invalidHijriDateProvider
-     * @covers ::__construct
-     * @covers \Hussainweb\DateConverter\Algorithm\Hijri\HijriAlgorithmBase::isValidDate
-     */
+    #[DataProvider('invalidHijriDateProvider')]
     public function testInvalidHijriDates($d, $m, $y)
     {
         $this->expectException(InvalidDateException::class);
         $hijri_date = new HijriDate($d, $m, $y, $this->algorithm);
     }
 
-    /**
-     * @dataProvider hijriDateProvider
-     * @covers ::getFormatter
-     */
+    #[DataProvider('hijriDateProvider')]
     public function testFormatter($d, $m, $y)
     {
         $gregorian_date = new HijriDate($d, $m, $y, $this->algorithm);
@@ -64,7 +70,7 @@ class HijriDateTest extends TestCase
         $this->assertSame($m, (int) $formatter->format('m'));
     }
 
-    public function hijriDateProvider()
+    public static function hijriDateProvider()
     {
         return
           [
@@ -74,7 +80,7 @@ class HijriDateTest extends TestCase
           ];
     }
 
-    public function invalidHijriDateProvider()
+    public static function invalidHijriDateProvider()
     {
         return
           [
